@@ -191,7 +191,6 @@ st.title("From Kick off to Glory : FIFA Worldcup")
 analysis_type = st.selectbox("Choose Analysis Type", ["Goal Analysis", "Match and Attendance Analysis", "Match Outcome Analysis"])
 
 if analysis_type == "Goal Analysis":
-    print("###HHHHJJJJJJJ#########")
 
     st.subheader("Goal Analysis")
     # Goals per Country
@@ -206,7 +205,6 @@ if analysis_type == "Goal Analysis":
     
 
 if analysis_type == "Match and Attendance Analysis":
-    print("#####hgkkll;d;ewofoerfcjdk#######")
 
     st.subheader("Match and Attendance Analysis")
     
@@ -222,7 +220,6 @@ if analysis_type == "Match and Attendance Analysis":
 #     st.plotly_chart(average_attendance_fig)
 
 if analysis_type == "Match Outcome Analysis":
-    print("############")
     st.subheader("Match Outcome Analysis")
 
     # Plot and display Distribution of First and Second Half - Home Team Goals
