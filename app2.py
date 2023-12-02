@@ -8,6 +8,7 @@ import streamlit as st
 import base64
 from plotly.offline import iplot
 import seaborn as sns
+import math
 
 st.set_page_config(page_title="Final Project", page_icon=":bar_chart:", layout="wide", initial_sidebar_state='collapsed')
 
@@ -278,17 +279,54 @@ def generate_attendance_per_year_plot(world_cup_data):
 
     return fig
 
+# def generate_qualified_teams_per_year_plot(world_cup_data):
+#     fig = px.bar(
+#         world_cup_data,
+#         x='Year',
+#         y='QualifiedTeams',
+#         title='Qualified Teams Per Year',
+#         labels={'QualifiedTeams': 'Qualified Teams'},
+#     )
+#     fig.update_layout(xaxis_tickangle=80)
+
+#     return fig
+
 def generate_qualified_teams_per_year_plot(world_cup_data):
-    fig = px.bar(
+    # Assuming your world_cup_data DataFrame has columns 'Year' and 'QualifiedTeams'
+    # angles = [360 * i / len(world_cup_data) for i in range(len(world_cup_data))]
+    angles = np.linspace(0, 360, len(world_cup_data), endpoint=False)
+
+    # Plotting
+    fig = px.bar_polar(
         world_cup_data,
-        x='Year',
-        y='QualifiedTeams',
-        title='Qualified Teams Per Year',
-        labels={'QualifiedTeams': 'Qualified Teams'},
+        r='QualifiedTeams',
+        theta=angles,  # Use the calculated angles
+        color="QualifiedTeams",
+        template="plotly_dark",
+        color_discrete_sequence=px.colors.sequential.Plasma_r,
+        title='Number of Qualified Teams per Year in FIFA World Cup',
+        range_theta=[0, 360]  # Set the range_theta to cover the entire circle
     )
-    fig.update_layout(xaxis_tickangle=80)
+    
+
+
 
     return fig
+
+
+    # # Plotting
+    # fig = px.bar_polar(
+    #     world_cup_data,
+    #     r='QualifiedTeams',
+    #     theta="Year",
+    #     color="QualifiedTeams",
+    #     template="plotly_dark",
+    #     color_discrete_sequence=px.colors.sequential.Plasma_r,
+    #     title='Number of Qualified Teams per Year in FIFA World Cup',
+    #     #range_theta=[0, 360]  # Set the range_theta to cover the entire circle
+    # )
+
+    # return fig
 
 def generate_matches_played_per_year_plot(world_cup_data):
     fig = px.scatter(
@@ -392,6 +430,32 @@ def plot_match_outcomes(matches_data):
 
     return fig
 
+def plot_max_goals_and_winner_goals(matches_data):
+    # Assuming your matches_data DataFrame has columns 'Year', 'Home Team Name', 'Away Team Name', 'Home Team Goals', 'Away Team Goals'
+
+    # Create a new DataFrame to store the total goals scored by each country in each edition
+    total_goals_data_home = matches_data.groupby(['Year', 'Home Team Name'])['Home Team Goals'].sum().reset_index()
+    total_goals_data_away = matches_data.groupby(['Year', 'Away Team Name'])['Away Team Goals'].sum().reset_index()
+
+    # Merge the total_goals_data for home and away teams
+    total_goals_data = pd.concat([total_goals_data_home, total_goals_data_away], ignore_index=True)
+
+    # Find the country with the maximum total goals in each year
+    max_goals_data = total_goals_data.groupby('Year')['Home Team Goals'].max().reset_index()
+
+    # Merge the max_goals_data with matches_data to get the Winner Goals
+    matches_data = pd.merge(matches_data, max_goals_data, how='left', left_on=['Year', 'Home Team Name'], right_on=['Year', 'Home Team Name'], suffixes=('_match', '_max'))
+
+    # Create a new column 'Winner Goals' based on the maximum goals
+    matches_data['Winner Goals'] = matches_data.apply(lambda row: row['Home Team Goals_max'] if row['Home Team Goals_match'] > row['Away Team Goals_match'] else row['Away Team Goals_max'], axis=1)
+
+    # Plotting
+    fig = px.bar(matches_data, x='Year', y=['Winner Goals'],
+                 labels={'value': 'Number of Goals'},
+                 title='Maximum Goals Scored by Any Team and Number of Goals by Winning Team for Each Edition of World Cup')
+    
+    return fig
+
 
 ############ Streamlit UI ##########
 
@@ -444,7 +508,7 @@ if analysis_type == "Attendance and Participation Analysis":
     with col2:
         st.subheader("")
         st.subheader("")
-        # st.write("Attendance Analysis")
+        st.write("Participation Analysis")
         teams_qualified_fig = generate_qualified_teams_per_year_plot(cups)
         st.plotly_chart(teams_qualified_fig)
     with col3:
@@ -473,6 +537,11 @@ if analysis_type == "Match Outcome Analysis":
         st.write("Home and Away Goals by Year")
         goals_by_year_fig = plot_goals_by_year(matches)
         st.plotly_chart(goals_by_year_fig)
+    with col3:
+        # Plot and display Home and Away Goals by Year
+        st.write("Home and Away Goals by Year")
+        goals_comparison_fig = plot_max_goals_and_winner_goals(matches)
+        st.plotly_chart(goals_comparison_fig)
 
 if analysis_type == "Cup Analysis":
     col1, col2, col3 = st.columns(3)
