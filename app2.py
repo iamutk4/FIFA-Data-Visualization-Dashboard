@@ -211,7 +211,7 @@ def generate_qualified_teams_per_year_plot(world_cup_data):
         color="QualifiedTeams",
         template="plotly_dark",
         color_discrete_sequence=px.colors.sequential.Plasma_r,
-        title='Average Attendance per Match Over the Years',
+        title='Qualified Teams Over the Years',
     )
     
     # Update layout to adjust theta axis for categorical data (years)
