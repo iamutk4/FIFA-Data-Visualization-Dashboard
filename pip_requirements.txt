@@ -42,6 +42,7 @@ matplotlib-inline @ file:///home/conda/feedstock_root/build_artifacts/matplotlib
 mdurl @ file:///home/conda/feedstock_root/build_artifacts/mdurl_1639515908913/work
 nbformat @ file:///home/conda/feedstock_root/build_artifacts/nbformat_1690814868471/work
 nest-asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1697083700168/work
+networkx==3.2.1
 numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1700874567832/work/dist/numpy-1.26.2-cp312-cp312-macosx_10_9_x86_64.whl#sha256=77d5769364f161b525bb34fa051bfedec44a3a9153f29e9a7d49a99542fb131c
 packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1696202382185/work
 pandas @ file:///Users/runner/miniforge3/conda-bld/pandas_1699670381716/work
@@ -70,6 +71,7 @@ referencing @ file:///home/conda/feedstock_root/build_artifacts/referencing_1700
 requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1684774241324/work
 rich @ file:///home/conda/feedstock_root/build_artifacts/rich-split_1700160075651/work/dist
 rpds-py @ file:///Users/runner/miniforge3/conda-bld/rpds-py_1700527140621/work
+scipy==1.11.4
 seaborn==0.13.0
 setuptools==68.2.2
 six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
