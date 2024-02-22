@@ -1,4 +1,6 @@
-# cse5544-data-visualization
+# From Kick-off to Glory: Visualizing the Evolution of FIFA World Cups
+![image](https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard/assets/69798933/b5912857-d2de-499c-9c13-e0d54febb9f3)
+
 
 this repo contains the final sem project for cse5544-data-visualization at OSU, Fall '23, titled 'From Kick-off to Glory: Visualizing the Evolution of FIFA World Cups'. steps to reproduce:
 
