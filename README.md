@@ -15,19 +15,19 @@ This repository contains a Streamlit dashboard app for visualizing podium finish
           git clone https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard.git
    
 ### 2. Create an environment and install required conda dependencies:
-     ``` bash
+
         conda create --name my_env --file conda_environments.txt
    
 ### 3. Activate the environment:
-     ``` bash
+
           conda activate my_env
           
 ### 4. Install all the pip dependencies:
-     ``` bash
+     
           pip install -r pip_requirements.txt
           
 ### 5. Run the following command to start the Streamlit application
-     ``` bash
+     
           streamlit run app.py
 
 The app will open in your default web browser. Explore the different tabs to analyze FIFA Data Visualization Dashboard. Alternatively you can access the dashboard by opening your browser and going to http://localhost:8501.
