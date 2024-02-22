@@ -1,8 +1,33 @@
-# cse5544-data-visualization
+# From Kick-off to Glory: Visualizing the Evolution of FIFA World Cups
 
-this repo contains the final sem project for cse5544-data-visualization at OSU, Fall '23, titled 'From Kick-off to Glory: Visualizing the Evolution of FIFA World Cups'. steps to reproduce:
+<img width="432" alt="image" src="https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard/assets/69798933/f3ecb317-eb22-49f0-abdd-9834ed7ed7a2">
 
-1. create a new conda env with required conda dependencies from 'conda_environments.txt' (conda create --name my_env --file conda_environments.txt)
-2. activate the newly created env (conda activate my_env)
-3. install all the pip dependencies in this env from 'pip_requirements.txt' (pip install -r pip_requirements.txt)
-4. open and run the app.py file using streamlit (streamlit run <path-to-folder-containing-app.py/app.py)
+## Overview
+
+This repository contains a Streamlit dashboard app for visualizing podium finishes by country over different FIFA World Cup editions, starting from its inception in 1930, providing an overview of each nation's historic performance. This was built as part of Final Sem Project for CSE-5544 at OSU, Fall '23.
+
+## Question: Do goals win you FIFA World Cups?
+
+## Steps to answer
+
+1. Clone the repository:
+
+          git clone https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard.git
+   
+2. Create an environment and install required conda dependencies:
+
+        conda create --name my_env --file conda_environments.txt
+   
+3. Activate the environment:
+
+          conda activate my_env
+          
+4. Install all the pip dependencies:
+     
+          pip install -r pip_requirements.txt
+          
+5. Run the following command to start the Streamlit application
+     
+          streamlit run app.py
+
+The app will open in your default web browser. Explore the different tabs to analyze FIFA Data Visualization Dashboard. Alternatively you can access the dashboard by opening your browser and going to http://localhost:8501.
