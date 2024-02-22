@@ -2,9 +2,9 @@
 
 <img width="432" alt="image" src="https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard/assets/69798933/f3ecb317-eb22-49f0-abdd-9834ed7ed7a2">
 
+## Overview
 
-
-this repo contains the final sem project for cse5544-data-visualization at OSU, Fall '23, titled 'From Kick-off to Glory: Visualizing the Evolution of FIFA World Cups'. steps to reproduce:
+This repository contains a Streamlit dashboard app for visualizing podium finishes by country over different FIFA World Cup editions, starting from its inception in 1930, providing an overview of each nation's historic performance. This was built as part of Final Sem Project for CSE-5544 at OSU, Fall '23.
 
 1. create a new conda env with required conda dependencies from 'conda_environments.txt' (conda create --name my_env --file conda_environments.txt)
 2. activate the newly created env (conda activate my_env)
