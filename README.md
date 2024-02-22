@@ -10,11 +10,13 @@ This repository contains a Streamlit dashboard app for visualizing podium finish
 
 ## Steps to answer
 
-1. Clone the repository:
-     ``` git clone https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard.git ```
+### 1. Clone the repository:
+     ``` bash 
+          git clone https://github.com/iamutk4/FIFA-Data-Visualization-Dashboard.git
    
-2. Create an environment and install required conda dependencies:
-   ``` conda create --name my_env --file conda_environments.txt ```
+### 2. Create an environment and install required conda dependencies:
+     ``` bash
+        conda create --name my_env --file conda_environments.txt
    
 5. Activate the environment
 6. Install all the pip dependencies
